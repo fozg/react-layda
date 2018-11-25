@@ -1,6 +1,6 @@
 # react-dashboard-layout
 
-> Common dashboard layout build on react
+> Common dashboard layout wrapper of react-router-dom
 
 [![NPM](https://img.shields.io/npm/v/react-dashboard-layout.svg)](https://www.npmjs.com/package/react-dashboard-layout) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
