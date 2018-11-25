@@ -30,8 +30,7 @@
   height: 100%;
 }
 .DashboardMain__inner__left {
-  width: 100%;
-  flex: 0 0 1;
+  flex: 1;
 }
 
 .DashboardMain__inner__right {

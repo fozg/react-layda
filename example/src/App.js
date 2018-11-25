@@ -6,21 +6,38 @@ export default class App extends Component {
   render () {
     return (
       <div>
-        <Dashboard 
+        <Dashboard
+          header={{
+            headerLeft: <h3 style={{padding: '0 10px'}}>Dashboard Layout</h3>
+          }}
           boards={
             [
               {
-                path: "/",
-                exact: true,
+                path: "/todo",
+                // exact: true,
                 title: "Hone",
-                component: () => (<div>Home page</div>)
+                component: TodoList,
+                sidebar: {
+                  component: ({todoId}) => (
+                    <SidebarWrap>
+                      <div>Side bar Testing. <br/> Task id: {todoId} </div>
+                    </SidebarWrap>
+                  ),
+                  sidebarParam: 'todoId',
+                },
+
               },
               {
                 path: "/tasks",
-                title: "Tasks list",
-                component: () => <BoardTasksList />,
+                title: "Tasks List",
+                component: TaskList,
+
                 sidebar: {
-                  component: ({taskid}) => (<div>Side bar Testing. <br/> Task id: {taskid} </div>),
+                  component: ({taskid}) => (
+                    <SidebarWrap>
+                      <div>Side bar Testing. <br/> Task id: {taskid} </div>
+                    </SidebarWrap>
+                  ),
                   sidebarParam: 'taskid',
                   width: 400
                 }
@@ -33,20 +50,33 @@ export default class App extends Component {
   }
 }
 
-const BoardTasksList = ({}) => (
-  <div className="DashboardMainDemo">
-    Page 2
-    <LinkToSidebar
-      sidebarLink="idoftask1"
-      boardPath="/page1"
-    >Open task 1</LinkToSidebar>
-    <LinkToSidebar
-      sidebarLink="idoftask2"
-      boardPath="/page1"
-    >Open task 2</LinkToSidebar>
-    <LinkToSidebar
-      sidebarLink="idoftask3"
-      boardPath="/page1"
-    >Open task 3</LinkToSidebar>
+const SidebarWrap = ({children}) => (
+  <div style={{
+    padding: 10
+  }}>
+    {children}
   </div>
 )
+
+const TodoList = () => (
+  <div className="BoardContentDemo">
+    Todo:
+    <ul>
+      <li><LinkToSidebar sidebarLink="todo1" boardPath="/todo">Open Todo 1</LinkToSidebar></li>
+      <li><LinkToSidebar sidebarLink="todo2" boardPath="/todo">Open Todo 2</LinkToSidebar></li>
+      <li><LinkToSidebar sidebarLink="todo3" boardPath="/todo">Open Todo 3</LinkToSidebar></li>
+    </ul>
+  </div>
+)
+
+const TaskList = () => (
+  <div className="BoardContentDemo">
+    Task Lists
+    <ul>
+      <li><LinkToSidebar sidebarLink="idoftask1" boardPath="/tasks">Open task 1</LinkToSidebar></li>
+      <li><LinkToSidebar sidebarLink="idoftask2" boardPath="/tasks">Open task 2</LinkToSidebar></li>
+      <li><LinkToSidebar sidebarLink="idoftask3" boardPath="/tasks">Open task 3</LinkToSidebar></li>
+    </ul>
+  </div>
+)
+

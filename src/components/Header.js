@@ -13,7 +13,6 @@ export default class Header extends React.Component {
     return (
       <div className={styles.Header}>
         {headerLeft}
-        123
       </div>
     )
   }
