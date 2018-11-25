@@ -7,6 +7,7 @@ export default class App extends Component {
     return (
       <div>
         <Dashboard
+          basename={process.env.DEV ? '/' : '/react-layout-dashboard'}
           header={{
             headerLeft: <h3 style={{padding: '0 10px'}}>Dashboard Layout</h3>
           }}

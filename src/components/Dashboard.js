@@ -10,11 +10,12 @@ class Dashboard extends React.Component {
   render() {
     const {
       boards = [],
-      header
+      header,
+      basename
     } = this.props
 
     return (
-      <Router>
+      <Router basename={this.props.basename}>
         <div className={styles.DashboardLayout}>
           {header && <Header {...header} />}
           <div className={styles.Dashboard__wrap}>
