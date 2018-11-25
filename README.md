@@ -1,3 +1,5 @@
+<img src="https://fozg.github.io/react-layout-dashboard/dashboard.png" style="margin: 20px auto;display: inline-block">
+
 # react-layda
 
 > Common dashboard layout wrapper of react-router-dom
