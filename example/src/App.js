@@ -16,25 +16,9 @@ export default class App extends Component {
                 component: () => (<div>Home page</div>)
               },
               {
-                path: "/page1",
-                title: "Page 2",
-                component: () => (
-                  <div>
-                    Page 2
-                    <LinkToSidebar
-                      sidebarLink="idoftask1"
-                      boardPath="/page1"
-                    >Open task 1</LinkToSidebar>
-                    <LinkToSidebar
-                      sidebarLink="idoftask2"
-                      boardPath="/page1"
-                    >Open task 2</LinkToSidebar>
-                    <LinkToSidebar
-                      sidebarLink="idoftask3"
-                      boardPath="/page1"
-                    >Open task 3</LinkToSidebar>
-                  </div>
-                ),
+                path: "/tasks",
+                title: "Tasks list",
+                component: () => <BoardTasksList />,
                 sidebar: {
                   component: ({taskid}) => (<div>Side bar Testing. <br/> Task id: {taskid} </div>),
                   sidebarParam: 'taskid',
@@ -48,3 +32,21 @@ export default class App extends Component {
     )
   }
 }
+
+const BoardTasksList = ({}) => (
+  <div className="DashboardMainDemo">
+    Page 2
+    <LinkToSidebar
+      sidebarLink="idoftask1"
+      boardPath="/page1"
+    >Open task 1</LinkToSidebar>
+    <LinkToSidebar
+      sidebarLink="idoftask2"
+      boardPath="/page1"
+    >Open task 2</LinkToSidebar>
+    <LinkToSidebar
+      sidebarLink="idoftask3"
+      boardPath="/page1"
+    >Open task 3</LinkToSidebar>
+  </div>
+)
