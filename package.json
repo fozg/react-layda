@@ -1,6 +1,6 @@
 {
   "name": "react-layda",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Common Dashboard layout build on React & React-router-dom",
   "author": "fozg",
   "license": "MIT",
