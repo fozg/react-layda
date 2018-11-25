@@ -2,7 +2,15 @@
   height: 100vh;
   display: -ms-flex;
 	display: -webkit-flex;
-	display: flex;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.Dashboard__wrap {
+  height: calc(100% - 40px);
+  width: 100%;
+  display: flex;
 }
 
 .DashboardMain { 
