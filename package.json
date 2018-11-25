@@ -4,7 +4,7 @@
   "description": "Common Dashboard layout build on React & React-router-dom",
   "author": "fozg",
   "license": "MIT",
-  "repository": "fozg/react-dashboard-layout",
+  "repository": "fozg/react-layout-dashboard",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "jsnext:main": "dist/index.es.js",

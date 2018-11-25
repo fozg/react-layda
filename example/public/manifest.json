@@ -1,6 +1,6 @@
 {
-  "short_name": "react-dashboard-layout",
-  "name": "react-dashboard-layout",
+  "short_name": "react-layout-dashboard",
+  "name": "react-layout-dashboard",
   "start_url": "./index.html",
   "display": "standalone",
   "theme_color": "#000000",

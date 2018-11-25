@@ -1,6 +1,6 @@
 {
-  "name": "react-dashboard-layout-example",
-  "homepage": "https://fozg.github.io/react-dashboard-layout",
+  "name": "react-layout-dashboard-example",
+  "homepage": "https://fozg.github.io/react-layout-dashboard",
   "version": "0.0.0",
   "license": "MIT",
   "private": true,
@@ -9,7 +9,7 @@
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-scripts": "^1.1.4",
-    "react-dashboard-layout": "link:.."
+    "react-layout-dashboard": "link:.."
   },
   "scripts": {
     "start": "react-scripts start",

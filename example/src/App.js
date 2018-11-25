@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import Dashboard, {LinkToSidebar} from 'react-dashboard-layout'
+import Dashboard, {LinkToSidebar} from 'react-layout-dashboard'
 
 export default class App extends Component {
   render () {

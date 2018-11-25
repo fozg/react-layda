@@ -1,13 +1,13 @@
-# react-dashboard-layout
+# react-layout-dashboard
 
 > Common dashboard layout wrapper of react-router-dom
 
-[![NPM](https://img.shields.io/npm/v/react-dashboard-layout.svg)](https://www.npmjs.com/package/react-dashboard-layout) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/npm/v/react-layout-dashboard.svg)](https://www.npmjs.com/package/react-layout-dashboard) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 ## Install
 
 ```bash
-npm install --save react-dashboard-layout
+npm install --save react-layout-dashboard
 ```
 
 ## Usage
@@ -15,7 +15,7 @@ npm install --save react-dashboard-layout
 ```jsx
 import React, { Component } from 'react'
 
-import MyComponent from 'react-dashboard-layout'
+import MyComponent from 'react-layout-dashboard'
 
 class Example extends Component {
   render () {
