@@ -31,6 +31,7 @@ export default class App extends Component {
                 path: "/tasks",
                 title: "Tasks List",
                 component: TaskList,
+
                 sidebar: {
                   component: ({taskid}) => (
                     <SidebarWrap>
@@ -78,3 +79,4 @@ const TaskList = () => (
     </ul>
   </div>
 )
+

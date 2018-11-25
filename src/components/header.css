@@ -1,8 +1,8 @@
 .Header {
-  height: 40px; 
-  background-color: #333;
+  height: auto; 
+  background-color: #fff;
+  border-bottom: 1px solid #e5ecf1;
   width: 100%;
-  
 
   box-sizing: border-box;
   background-color: #fff;
@@ -11,4 +11,5 @@
   display: flex;
   min-height: 40px;
   align-items: center; 
+
 }
