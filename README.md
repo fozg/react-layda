@@ -2,14 +2,21 @@
 <img src="https://fozg.github.io/react-layout-dashboard/dashboard.png" width="150">
 </p>
 <p align="center">
-<strong>react-layda</strong>
- Common dashboard layout wrapper of react-router-dom
+  <strong>react-layda</strong> • A Common dashboard layout wrapper of react-router-dom
 </p>
-<img src="https://fozg.github.io/react-layout-dashboard/react-layda.png" style="margin: 20px auto;display: inline-block">
+<p align="center">
+  <a href="#usage">Usage</a> •
+  <a href="#install">Install</a> •
+  <a href="https://fozg.github.io/react-layout-dashboard/" target="_blank">Examples</a> 
+</p>
+<p align="center">
+<img src="https://raw.githubusercontent.com/fozg/react-layout-dashboard/master/example/public/react-layda.png" style="margin: 20px auto;display: inline-block">
+</p>
+
 
 [![NPM](https://img.shields.io/npm/v/react-layda.svg)](https://www.npmjs.com/package/react-layda) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
-## [Demo](https://fozg.github.io/react-layout-dashboard/)
+
 ## Install
 
 ```bash
