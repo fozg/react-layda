@@ -1,0 +1,26 @@
+.Navigation {
+  height: 100%;
+  background-color: #eee;
+  width: 200px;
+  border-right: 1px solid #ddd;
+}
+
+.Navigation__Links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.Navigation__Links__li a {
+  padding: 10px;
+  display: block;
+  text-decoration: none;
+  color: #333;
+}
+
+.Navigation__Links__li a:hover {
+  background-color: #ddd;
+}
+.Navigation__Links__li a.active {
+  background-color: #dfdfdf !important;
+}

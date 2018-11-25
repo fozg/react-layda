@@ -11,11 +11,16 @@ export default class App extends Component {
             [
               {
                 path: "/",
+                exact: true,
+                title: "Hone",
                 component: () => (<div>Home page</div>)
               },
               {
                 path: "/page1",
-                component: () => (<div>Page 1</div>)
+                title: "Page 2",
+                component: () => (<div>Page 2</div>),
+                sidebar: () => (<div>Side bar Testing</div>),
+                sidebarParam: 'task'
               }
             ]
           }
