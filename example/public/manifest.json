@@ -1,6 +1,6 @@
 {
-  "short_name": "react-layout-dashboard",
-  "name": "react-layout-dashboard",
+  "short_name": "react-layda",
+  "name": "react-layda",
   "start_url": "./index.html",
   "display": "standalone",
   "theme_color": "#000000",
