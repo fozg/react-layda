@@ -9,13 +9,14 @@ import styles from './dashboard.css'
 class Dashboard extends React.Component {
   render() {
     const {
-      boards = []
+      boards = [],
+      header
     } = this.props
 
     return (
       <Router>
         <div className={styles.DashboardLayout}>
-          <Header />
+          {header && <Header {...header} />}
           <div className={styles.Dashboard__wrap}>
             <Navigation
               boards={boards}
