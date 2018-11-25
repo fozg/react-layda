@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Dashboard from './components/Dashboard';
-
+import LinkToSidebar from './components/LinkToSidebar';
 
 export default class ExampleComponent extends Component {
   static propTypes = {
@@ -12,3 +12,7 @@ export default class ExampleComponent extends Component {
     return ( <Dashboard {...this.props} />  )
   }
 }
+
+export {LinkToSidebar};
+
+

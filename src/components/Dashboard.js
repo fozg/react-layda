@@ -7,7 +7,7 @@ import styles from './dashboard.css'
 
 class Dashboard extends React.Component {
 
-  render () {
+  render() {
     const {
       boards = []
     } = this.props;
@@ -15,33 +15,41 @@ class Dashboard extends React.Component {
     return (
       <Router>
         <div className={styles.DashboardLayout}>
-          
+
           <Navigation
             boards={boards}
           />
-          
-          <div>
+
+          <div
+            className={styles.DashboardMain}
+          >
             {
               boards.map((board, idx) => (
-                <div>
-                  <Route
-                    exact={board.exact}
-                    path={board.path}
-                    component={board.component}
-                  />
-                  <Route
-                    path={`${board.path}/:${board.sidebarParam || 'id'}`}
-                    render={({match}) => (
-                      <SideBar match={match} sidebarParam={board.sidebarParam}
-                        component={board.sidebar}
-                      />                          
-                    )}
-                  />
-                </div>
+                <Route
+                  key={idx}
+                  exact={board.exact}
+                  path={board.path}
+                  component={
+                    () => <div  className={styles.DashboardMain__inner}>
+                      <div className={styles.DashboardMain__inner__left}>
+                        {board.component()}
+                      </div>
+                      
+                      <Route
+                        path={`${board.path}/:${board.sidebar.sidebarParam || 'id'}`}
+                        render={({ match }) => (
+                          <SideBar 
+                            {...board.sidebar}
+                            match={match}
+                          />
+                        )} />
+                    </div>
+                  }
+                />
+
               ))
             }
           </div>
-
         </div>
       </Router>
     )

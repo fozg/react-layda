@@ -1,4 +1,29 @@
 .DashboardLayout {
   height: 100vh;
+  display: -ms-flex;
+	display: -webkit-flex;
+	display: flex;
+}
+
+.DashboardMain { 
+  width: 100%;
+  /* background-color: bisque; */
+  height: 100%;
+}
+
+.DashboardMain__inner {
+  display: -ms-flex;
+	display: -webkit-flex;
   display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+}
+.DashboardMain__inner__left {
+  width: 100%;
+  flex: 0 0 1;
+}
+
+.DashboardMain__inner__right {
+
 }

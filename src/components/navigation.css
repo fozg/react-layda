@@ -1,8 +1,8 @@
 .Navigation {
   height: 100%;
-  background-color: #eee;
+  background-color: #f5f7f9;
   width: 200px;
-  border-right: 1px solid #ddd;
+  border-right: 1px solid #e5ecf1;
 }
 
 .Navigation__Links {
