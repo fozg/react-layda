@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://fozg.github.io/react-layout-dashboard/dashboard.png" width="150">
+<img src="https://fozg.github.io/react-layda/dashboard.png" width="150">
 </p>
 <p align="center">
   <strong>react-layda</strong> • A Common dashboard layout wrapper of react-router-dom
@@ -7,10 +7,10 @@
 <p align="center">
   <a href="#usage">Usage</a> •
   <a href="#install">Install</a> •
-  <a href="https://fozg.github.io/react-layout-dashboard/" target="_blank">Examples</a> 
+  <a href="https://fozg.github.io/react-layda/" target="_blank">Examples</a> 
 </p>
 <p align="center">
-<img src="https://raw.githubusercontent.com/fozg/react-layout-dashboard/master/example/public/react-layda.png" style="margin: 20px auto;display: inline-block">
+<img src="https://raw.githubusercontent.com/fozg/react-layda/master/example/public/react-layda.png" style="margin: 20px auto;display: inline-block">
 </p>
 
 
@@ -34,7 +34,7 @@ class Example extends Component {
   render () {
     return (
       <Dashboard
-          basename={process.env.DEV ? '/' : '/react-layout-dashboard'}
+          basename={process.env.DEV ? '/' : '/react-layda'}
           header={{
             headerLeft: <h3 style={{padding: '0 10px'}}>Dashboard Layout</h3>
           }}
