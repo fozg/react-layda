@@ -10,7 +10,7 @@ export default class Navigation extends React.Component {
     } = this.props;
 
     return (
-      <div className={styles.Navigation}>
+      <div className={'Layda-Navigation '+styles.Navigation}>
         <ul className={styles.Navigation__Links}>
           {boards.map((board, idx) => (
             <li className={styles.Navigation__Links__li} >

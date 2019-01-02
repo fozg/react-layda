@@ -3673,7 +3673,7 @@ var Navigation = function (_React$Component) {
 
       return React.createElement(
         'div',
-        { className: styles$1.Navigation },
+        { className: 'Layda-Navigation ' + styles$1.Navigation },
         React.createElement(
           'ul',
           { className: styles$1.Navigation__Links },
