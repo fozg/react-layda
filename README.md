@@ -38,13 +38,16 @@ class Example extends Component {
           header={{
             headerLeft: <h3 style={{padding: '0 10px'}}>Dashboard Layout</h3>
           }}
+          styleContainer={...} // object styles
+          styleNavigation={...} // style for navigation
+          styleHeader={...} // style header
           boards={
             [
               {
                 path: "/todo",
                 // exact: true,
                 title: "Hone",
-                component: TodoList,
+                component: (props) =>  <TodoList {...props} />,
                 sidebar: {
                   component: ({todoId}) => (
                     <SidebarWrap>
@@ -67,7 +70,8 @@ class Example extends Component {
                     </SidebarWrap>
                   ),
                   sidebarParam: 'taskid',
-                  width: 400
+                  width: 400,
+                  style: //object styles
                 }
               }
             ]

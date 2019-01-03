@@ -7,11 +7,12 @@ export default class Header extends React.Component {
     const {
       headerLeft,
       headerCenter,
-      headerRight
+      headerRight,
+      styleHeader
     } = this.props
 
     return (
-      <div className={'Layda-Header '+styles.Header}>
+      <div className={'Layda-Header '+styles.Header} style={styleHeader}>
         {headerLeft}
       </div>
     )

@@ -6,18 +6,19 @@ export default class Navigation extends React.Component {
 
   render () {
     const {
-      boards
+      boards,
+      styleNavigation
     } = this.props;
 
     return (
-      <div className={'Layda-Navigation '+styles.Navigation}>
+      <div className={'Layda-Navigation '+styles.Navigation} style={styleNavigation}>
         <ul className={styles.Navigation__Links}>
           {boards.map((board, idx) => (
-            <li className={styles.Navigation__Links__li} >
+            <li className={styles.Navigation__Links__li} key={board.path}>
               <NavLink 
                 exact={board.exact}
                 to={board.path}
-                activeClassName={styles.active}
+                activeClassName={'Layda-Nav-active '+styles.active}
               >
                 {board.title}
               </NavLink>

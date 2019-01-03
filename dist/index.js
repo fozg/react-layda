@@ -3625,6 +3625,18 @@ var inherits = function (subClass, superClass) {
   if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
 };
 
+var objectWithoutProperties = function (obj, keys) {
+  var target = {};
+
+  for (var i in obj) {
+    if (keys.indexOf(i) >= 0) continue;
+    if (!Object.prototype.hasOwnProperty.call(obj, i)) continue;
+    target[i] = obj[i];
+  }
+
+  return target;
+};
+
 var possibleConstructorReturn = function (self, call) {
   if (!self) {
     throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
@@ -3647,12 +3659,13 @@ var Header = function (_React$Component) {
       var _props = this.props,
           headerLeft = _props.headerLeft,
           headerCenter = _props.headerCenter,
-          headerRight = _props.headerRight;
+          headerRight = _props.headerRight,
+          styleHeader = _props.styleHeader;
 
 
       return React__default.createElement(
         'div',
-        { className: styles.Header },
+        { className: 'Layda-Header ' + styles.Header, style: styleHeader },
         headerLeft
       );
     }
@@ -3660,7 +3673,7 @@ var Header = function (_React$Component) {
   return Header;
 }(React__default.Component);
 
-var css$1 = ".navigation_Navigation__1hUCt {\r\n  height: 100%;\r\n  background-color: #f5f7f9;\r\n  width: 200px;\r\n  border-right: 1px solid #e5ecf1;\r\n}\r\n\r\n.navigation_Navigation__Links___2Bb8 {\r\n  list-style: none;\r\n  margin: 0;\r\n  padding: 0;\r\n}\r\n\r\n.navigation_Navigation__Links__li__3yQ9S a {\r\n  padding: 10px;\r\n  display: block;\r\n  text-decoration: none;\r\n  color: #333;\r\n}\r\n\r\n.navigation_Navigation__Links__li__3yQ9S a:hover {\r\n  background-color: #ddd;\r\n}\r\n.navigation_Navigation__Links__li__3yQ9S a.navigation_active__1Q3G9 {\r\n  background-color: #dfdfdf !important;\r\n}";
+var css$1 = ".navigation_Navigation__1hUCt {\r\n  height: 100%;\r\n  background-color: #f5f7f9;\r\n  width: 200px;\r\n  border-right: 1px solid #e5ecf1;\r\n}\r\n\r\n.navigation_Navigation__Links___2Bb8 {\r\n  list-style: none;\r\n  margin: 0;\r\n  padding: 0;\r\n}\r\n\r\n.navigation_Navigation__Links__li__3yQ9S a {\r\n  padding: 10px;\r\n  display: block;\r\n  text-decoration: none;\r\n  color: #333;\r\n}\r\n\r\n.navigation_Navigation__Links__li__3yQ9S a:hover {\r\n  background-color: #ddd;\r\n}\r\n.navigation_Navigation__Links__li__3yQ9S a.navigation_active__1Q3G9 {\r\n  background-color: #dfdfdf;\r\n}";
 var styles$1 = { "Navigation": "navigation_Navigation__1hUCt", "Navigation__Links": "navigation_Navigation__Links___2Bb8", "Navigation__Links__li": "navigation_Navigation__Links__li__3yQ9S", "active": "navigation_active__1Q3G9" };
 styleInject(css$1);
 
@@ -3675,25 +3688,27 @@ var Navigation = function (_React$Component) {
   createClass(Navigation, [{
     key: 'render',
     value: function render() {
-      var boards = this.props.boards;
+      var _props = this.props,
+          boards = _props.boards,
+          styleNavigation = _props.styleNavigation;
 
 
       return React__default.createElement(
         'div',
-        { className: 'Layda-Navigation ' + styles$1.Navigation },
+        { className: 'Layda-Navigation ' + styles$1.Navigation, style: styleNavigation },
         React__default.createElement(
           'ul',
           { className: styles$1.Navigation__Links },
           boards.map(function (board, idx) {
             return React__default.createElement(
               'li',
-              { className: styles$1.Navigation__Links__li },
+              { className: styles$1.Navigation__Links__li, key: board.path },
               React__default.createElement(
                 NavLink,
                 {
                   exact: board.exact,
                   to: board.path,
-                  activeClassName: styles$1.active
+                  activeClassName: 'Layda-Nav-active ' + styles$1.active
                 },
                 board.title
               )
@@ -3706,9 +3721,49 @@ var Navigation = function (_React$Component) {
   return Navigation;
 }(React__default.Component);
 
-var css$2 = "\r\n.sidebar_sidebar__3empg {\r\n  min-width: 200px;\r\n  background-color: #f5f7f9;\r\n  border-left: 1px solid #e5ecf1;\r\n  flex: 0 0 1;\r\n}";
-var styles$2 = { "sidebar": "sidebar_sidebar__3empg" };
+var css$2 = ".dashboard_DashboardLayout__-VWOf {\r\n  height: 100vh;\r\n  display: -ms-flex;\r\n\tdisplay: -webkit-flex;\r\n  display: flex;\r\n  flex-direction: column;\r\n  flex-wrap: wrap;\r\n  position: relative;\r\n}\r\n\r\n.dashboard_Dashboard__wrap__3Enx0 {\r\n  height: calc(100% - 40px);\r\n  width: 100%;\r\n  display: flex;\r\n  flex: 1;\r\n}\r\n\r\n.dashboard_DashboardMain__1wOi- { \r\n  width: 100%;\r\n  /* background-color: bisque; */\r\n  height: 100%;\r\n}\r\n\r\n.dashboard_DashboardMain__inner__opa9H {\r\n  display: -ms-flex;\r\n\tdisplay: -webkit-flex;\r\n  display: flex;\r\n  flex-direction: row;\r\n  width: 100%;\r\n  height: 100%;\r\n}\r\n.dashboard_DashboardMain__inner__left__279GR {\r\n  flex: 1;\r\n}\r\n\r\n.dashboard_DashboardMain__inner__right__3B22t {\r\n\r\n}";
+var styles$2 = { "DashboardLayout": "dashboard_DashboardLayout__-VWOf", "Dashboard__wrap": "dashboard_Dashboard__wrap__3Enx0", "DashboardMain": "dashboard_DashboardMain__1wOi-", "DashboardMain__inner": "dashboard_DashboardMain__inner__opa9H", "DashboardMain__inner__left": "dashboard_DashboardMain__inner__left__279GR", "DashboardMain__inner__right": "dashboard_DashboardMain__inner__right__3B22t" };
 styleInject(css$2);
+
+/**
+ * LOL this name
+ */
+
+var MainBoard = function (_React$Component) {
+  inherits(MainBoard, _React$Component);
+
+  function MainBoard() {
+    classCallCheck(this, MainBoard);
+    return possibleConstructorReturn(this, (MainBoard.__proto__ || Object.getPrototypeOf(MainBoard)).apply(this, arguments));
+  }
+
+  createClass(MainBoard, [{
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          component = _props.component,
+          children = _props.children,
+          rest = objectWithoutProperties(_props, ['component', 'children']);
+
+
+      return React__default.createElement(
+        'div',
+        { className: styles$2.DashboardMain__inner },
+        React__default.createElement(
+          'div',
+          { className: styles$2.DashboardMain__inner__left },
+          component(_extends$b({}, rest))
+        ),
+        children
+      );
+    }
+  }]);
+  return MainBoard;
+}(React__default.Component);
+
+var css$3 = "\r\n.sidebar_sidebar__3empg {\r\n  min-width: 200px;\r\n  background-color: #f5f7f9;\r\n  border-left: 1px solid #e5ecf1;\r\n  flex: 0 0 1;\r\n}";
+var styles$3 = { "sidebar": "sidebar_sidebar__3empg" };
+styleInject(css$3);
 
 var SideBar = function (_React$Component) {
   inherits(SideBar, _React$Component);
@@ -3725,22 +3780,19 @@ var SideBar = function (_React$Component) {
           match = _props.match,
           component = _props.component,
           _props$width = _props.width,
-          width = _props$width === undefined ? 200 : _props$width;
+          width = _props$width === undefined ? 200 : _props$width,
+          style = _props.style;
 
 
       return React__default.createElement(
         'div',
-        { className: styles$2.sidebar, style: { width: width } },
+        { className: styles$3.sidebar, style: _extends$b({ width: width }, style) },
         component(_extends$b({}, match.params))
       );
     }
   }]);
   return SideBar;
 }(React__default.Component);
-
-var css$3 = ".dashboard_DashboardLayout__-VWOf {\r\n  height: 100vh;\r\n  display: -ms-flex;\r\n\tdisplay: -webkit-flex;\r\n  display: flex;\r\n  flex-direction: column;\r\n  flex-wrap: wrap;\r\n  position: relative;\r\n}\r\n\r\n.dashboard_Dashboard__wrap__3Enx0 {\r\n  height: calc(100% - 40px);\r\n  width: 100%;\r\n  display: flex;\r\n  flex: 1;\r\n}\r\n\r\n.dashboard_DashboardMain__1wOi- { \r\n  width: 100%;\r\n  /* background-color: bisque; */\r\n  height: 100%;\r\n}\r\n\r\n.dashboard_DashboardMain__inner__opa9H {\r\n  display: -ms-flex;\r\n\tdisplay: -webkit-flex;\r\n  display: flex;\r\n  flex-direction: row;\r\n  width: 100%;\r\n  height: 100%;\r\n}\r\n.dashboard_DashboardMain__inner__left__279GR {\r\n  flex: 1;\r\n}\r\n\r\n.dashboard_DashboardMain__inner__right__3B22t {\r\n\r\n}";
-var styles$3 = { "DashboardLayout": "dashboard_DashboardLayout__-VWOf", "Dashboard__wrap": "dashboard_Dashboard__wrap__3Enx0", "DashboardMain": "dashboard_DashboardMain__1wOi-", "DashboardMain__inner": "dashboard_DashboardMain__inner__opa9H", "DashboardMain__inner__left": "dashboard_DashboardMain__inner__left__279GR", "DashboardMain__inner__right": "dashboard_DashboardMain__inner__right__3B22t" };
-styleInject(css$3);
 
 var Dashboard = function (_React$Component) {
   inherits(Dashboard, _React$Component);
@@ -3757,41 +3809,40 @@ var Dashboard = function (_React$Component) {
           _props$boards = _props.boards,
           boards = _props$boards === undefined ? [] : _props$boards,
           header = _props.header,
-          basename = _props.basename;
+          basename = _props.basename,
+          styleHeader = _props.styleHeader,
+          styleNavigation = _props.styleNavigation,
+          styleContainer = _props.styleContainer;
 
 
       return React__default.createElement(
         BrowserRouter,
-        { basename: this.props.basename },
+        { basename: basename },
         React__default.createElement(
           'div',
-          { className: styles$3.DashboardLayout },
-          header && React__default.createElement(Header, header),
+          { className: styles$2.DashboardLayout, style: styleContainer },
+          header && React__default.createElement(Header, _extends$b({}, header, { styleHeader: styleHeader })),
           React__default.createElement(
             'div',
-            { className: styles$3.Dashboard__wrap },
+            { className: styles$2.Dashboard__wrap },
             React__default.createElement(Navigation, {
-              boards: boards
+              boards: boards,
+              styleNavigation: styleNavigation
             }),
             React__default.createElement(
               'div',
               {
-                className: styles$3.DashboardMain
+                className: styles$2.DashboardMain
               },
               boards.map(function (board, idx) {
                 return React__default.createElement(Route, {
                   key: idx,
                   exact: board.exact,
                   path: board.path,
-                  component: function component() {
+                  render: function render(props) {
                     return React__default.createElement(
-                      'div',
-                      { className: styles$3.DashboardMain__inner },
-                      React__default.createElement(
-                        'div',
-                        { className: styles$3.DashboardMain__inner__left },
-                        board.component()
-                      ),
+                      MainBoard,
+                      _extends$b({}, board, props),
                       board.sidebar && React__default.createElement(Route, {
                         path: board.path + '/:' + (board.sidebar.sidebarParam || 'id'),
                         render: function render(_ref) {

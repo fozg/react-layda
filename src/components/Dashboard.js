@@ -2,6 +2,7 @@ import React from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import Header from './Header'
 import Navigation from './Navigation'
+import MainBoard from'./MainBoard'
 import SideBar from './SideBar'
 
 import styles from './dashboard.css'
@@ -11,16 +12,20 @@ class Dashboard extends React.Component {
     const {
       boards = [],
       header,
-      basename
+      basename,
+      styleHeader, 
+      styleNavigation,
+      styleContainer
     } = this.props
 
     return (
-      <Router basename={this.props.basename}>
-        <div className={styles.DashboardLayout}>
-          {header && <Header {...header} />}
+      <Router basename={basename}>
+        <div className={styles.DashboardLayout} style={styleContainer}>
+          {header && <Header {...header} styleHeader={styleHeader} />}
           <div className={styles.Dashboard__wrap}>
             <Navigation
               boards={boards}
+              styleNavigation={styleNavigation}
             />
             <div
               className={styles.DashboardMain}
@@ -31,11 +36,8 @@ class Dashboard extends React.Component {
                     key={idx}
                     exact={board.exact}
                     path={board.path}
-                    component={
-                      () => <div className={styles.DashboardMain__inner}>
-                        <div className={styles.DashboardMain__inner__left}>
-                          {board.component()}
-                        </div>
+                    render={props =>
+                      <MainBoard {...board} {...props}>
                         {board.sidebar &&
                           <Route
                             path={`${board.path}/:${board.sidebar.sidebarParam || 'id'}`}
@@ -47,7 +49,7 @@ class Dashboard extends React.Component {
                             )}
                           />
                         }
-                      </div>
+                      </MainBoard>
                     }
                   />
                 ))

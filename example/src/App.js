@@ -17,7 +17,7 @@ export default class App extends Component {
                 path: "/todo",
                 // exact: true,
                 title: "Hone",
-                component: TodoList,
+                component: TodoList ,
                 sidebar: {
                   component: ({todoId}) => (
                     <SidebarWrap>
@@ -59,16 +59,19 @@ const SidebarWrap = ({children}) => (
   </div>
 )
 
-const TodoList = () => (
-  <div className="BoardContentDemo">
-    Todo:
-    <ul>
-      <li><LinkToSidebar sidebarLink="todo1" boardPath="/todo">Open Todo 1</LinkToSidebar></li>
-      <li><LinkToSidebar sidebarLink="todo2" boardPath="/todo">Open Todo 2</LinkToSidebar></li>
-      <li><LinkToSidebar sidebarLink="todo3" boardPath="/todo">Open Todo 3</LinkToSidebar></li>
-    </ul>
-  </div>
-)
+const TodoList = (props) => {
+  // console.log(props)
+  return (
+    <div className="BoardContentDemo">
+      Todo:
+      <ul>
+        <li><LinkToSidebar sidebarLink="todo1" boardPath="/todo">Open Todo 1</LinkToSidebar></li>
+        <li><LinkToSidebar sidebarLink="todo2" boardPath="/todo">Open Todo 2</LinkToSidebar></li>
+        <li><LinkToSidebar sidebarLink="todo3" boardPath="/todo">Open Todo 3</LinkToSidebar></li>
+      </ul>
+    </div>
+  )
+}
 
 const TaskList = () => (
   <div className="BoardContentDemo">

@@ -8,11 +8,12 @@ export default class SideBar extends React.Component {
       match,
       component,
       // sidebarParam = 'id',
-      width = 200
+      width = 200,
+      style
     } = this.props;
 
     return (
-      <div className={styles.sidebar} style={{width}}>
+      <div className={styles.sidebar} style={{width, ...style}}>
         {component({
           ...match.params
         })}
