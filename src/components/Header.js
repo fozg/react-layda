@@ -14,6 +14,8 @@ export default class Header extends React.Component {
     return (
       <div className={'Layda-Header '+styles.Header} style={styleHeader}>
         {headerLeft}
+        {headerCenter}
+        {headerRight}
       </div>
     )
   }

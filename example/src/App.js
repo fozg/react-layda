@@ -8,8 +8,11 @@ export default class App extends Component {
       <div>
         <Dashboard
           basename={process.env.DEV ? '/' : '/react-layda'}
+          // defaultBoard="todo"
           header={{
-            headerLeft: <h3 style={{padding: '0 10px'}}>Dashboard Layout</h3>
+            headerLeft: <h3 style={{padding: '0 10px'}}>Dashboard Layout</h3>,
+            headerCenter: <h3 style={{padding: '0 10px'}}>Example</h3>,
+            headerRight: <h3 style={{padding: '0 10px'}}>Account</h3>
           }}
           boards={
             [
@@ -26,7 +29,7 @@ export default class App extends Component {
                   ),
                   sidebarParam: 'todoId',
                 },
-
+                // isVisibledNavigation: true
               },
               {
                 path: "/tasks",

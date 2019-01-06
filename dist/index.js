@@ -3567,7 +3567,7 @@ function styleInject(css, ref) {
   }
 }
 
-var css = ".header_Header__2Htbj {\r\n  height: auto; \r\n  background-color: #fff;\r\n  border-bottom: 1px solid #e5ecf1;\r\n  width: 100%;\r\n\r\n  box-sizing: border-box;\r\n  background-color: #fff;\r\n  border-bottom: 1px solid #e5ecf1;\r\n   /* width: 100%; */\r\n  display: flex;\r\n  min-height: 40px;\r\n  align-items: center; \r\n\r\n}";
+var css = ".header_Header__2Htbj {\r\n  height: auto; \r\n  background-color: #fff;\r\n  border-bottom: 1px solid #e5ecf1;\r\n  width: 100%;\r\n\r\n  box-sizing: border-box;\r\n  background-color: #fff;\r\n  border-bottom: 1px solid #e5ecf1;\r\n   /* width: 100%; */\r\n  display: flex;\r\n  min-height: 40px;\r\n  align-items: center; \r\n\r\n  justify-content: space-between;\r\n}";
 var styles = { "Header": "header_Header__2Htbj" };
 styleInject(css);
 
@@ -3666,7 +3666,9 @@ var Header = function (_React$Component) {
       return React__default.createElement(
         'div',
         { className: 'Layda-Header ' + styles.Header, style: styleHeader },
-        headerLeft
+        headerLeft,
+        headerCenter,
+        headerRight
       );
     }
   }]);
@@ -3700,7 +3702,7 @@ var Navigation = function (_React$Component) {
           'ul',
           { className: styles$1.Navigation__Links },
           boards.map(function (board, idx) {
-            return React__default.createElement(
+            return board.isVisibledNavigation !== false ? React__default.createElement(
               'li',
               { className: styles$1.Navigation__Links__li, key: board.path },
               React__default.createElement(
@@ -3712,7 +3714,7 @@ var Navigation = function (_React$Component) {
                 },
                 board.title
               )
-            );
+            ) : false;
           })
         )
       );
@@ -3812,7 +3814,8 @@ var Dashboard = function (_React$Component) {
           basename = _props.basename,
           styleHeader = _props.styleHeader,
           styleNavigation = _props.styleNavigation,
-          styleContainer = _props.styleContainer;
+          styleContainer = _props.styleContainer,
+          defaultBoard = _props.defaultBoard;
 
 
       return React__default.createElement(
@@ -3821,6 +3824,7 @@ var Dashboard = function (_React$Component) {
         React__default.createElement(
           'div',
           { className: styles$2.DashboardLayout, style: styleContainer },
+          defaultBoard && React__default.createElement(Redirect, { to: defaultBoard }),
           header && React__default.createElement(Header, _extends$b({}, header, { styleHeader: styleHeader })),
           React__default.createElement(
             'div',

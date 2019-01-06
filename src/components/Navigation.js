@@ -13,7 +13,7 @@ export default class Navigation extends React.Component {
     return (
       <div className={'Layda-Navigation '+styles.Navigation} style={styleNavigation}>
         <ul className={styles.Navigation__Links}>
-          {boards.map((board, idx) => (
+          {boards.map((board, idx) => board.isVisibledNavigation !== false ?
             <li className={styles.Navigation__Links__li} key={board.path}>
               <NavLink 
                 exact={board.exact}
@@ -22,8 +22,8 @@ export default class Navigation extends React.Component {
               >
                 {board.title}
               </NavLink>
-            </li>
-          ))}    
+            </li> : false
+          )}    
         </ul>
       </div>
     )

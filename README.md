@@ -37,10 +37,13 @@ class Example extends Component {
           basename={process.env.DEV ? '/' : '/react-layda'}
           header={{
             headerLeft: <h3 style={{padding: '0 10px'}}>Dashboard Layout</h3>
+            headerCenter: ...,
+            headerRight: ...,
           }}
           styleContainer={...} // object styles
           styleNavigation={...} // style for navigation
           styleHeader={...} // style header
+          defaultBoard="..."  // path of the board
           boards={
             [
               {
@@ -62,7 +65,7 @@ class Example extends Component {
                 path: "/tasks",
                 title: "Tasks List",
                 component: TaskList,
-
+                isVisibledNavigation: [true|false]
                 sidebar: {
                   component: ({taskid}) => (
                     <SidebarWrap>

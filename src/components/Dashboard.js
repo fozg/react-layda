@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom'
 import Header from './Header'
 import Navigation from './Navigation'
 import MainBoard from'./MainBoard'
@@ -15,12 +15,14 @@ class Dashboard extends React.Component {
       basename,
       styleHeader, 
       styleNavigation,
-      styleContainer
+      styleContainer,
+      defaultBoard
     } = this.props
 
     return (
       <Router basename={basename}>
         <div className={styles.DashboardLayout} style={styleContainer}>
+          {defaultBoard && <Redirect to={defaultBoard}/>}
           {header && <Header {...header} styleHeader={styleHeader} />}
           <div className={styles.Dashboard__wrap}>
             <Navigation
