@@ -19,7 +19,7 @@ export default class App extends Component {
               {
                 path: "/todo",
                 // exact: true,
-                title: "Hone",
+                title: "Todo",
                 component: TodoList ,
                 sidebar: {
                   component: ({todoId}) => (
@@ -45,6 +45,11 @@ export default class App extends Component {
                   sidebarParam: 'taskid',
                   width: 400
                 }
+              },
+              {
+                path: "/test",
+                title: "Test List",
+                component: TaskList,
               }
             ]
           }
