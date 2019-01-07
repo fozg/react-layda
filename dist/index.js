@@ -3567,9 +3567,11 @@ function styleInject(css, ref) {
   }
 }
 
-var css = ".header_Header__2Htbj {\r\n  height: auto; \r\n  background-color: #fff;\r\n  border-bottom: 1px solid #e5ecf1;\r\n  width: 100%;\r\n\r\n  box-sizing: border-box;\r\n  background-color: #fff;\r\n  border-bottom: 1px solid #e5ecf1;\r\n   /* width: 100%; */\r\n  display: flex;\r\n  min-height: 40px;\r\n  align-items: center; \r\n\r\n  justify-content: space-between;\r\n}";
-var styles = { "Header": "header_Header__2Htbj" };
+var css = ".header_Header__2Htbj {\r\n  height: auto; \r\n  background-color: #fff;\r\n  border-bottom: 1px solid #e5ecf1;\r\n  width: 100%;\r\n\r\n  box-sizing: border-box;\r\n  background-color: #fff;\r\n  border-bottom: 1px solid #e5ecf1;\r\n   /* width: 100%; */\r\n  display: flex;\r\n  min-height: 40px;\r\n  align-items: center; \r\n\r\n  justify-content: space-between;\r\n}\r\n\r\n.header_HeaderLeft__2yE2w {\r\n  display: flex;\r\n  flex-direction: row;\r\n  justify-items: center;\r\n  align-items: center;\r\n}\r\n.header_HeaderLeft__sidebarToggle__3uEu- {\r\n  padding-left: 10px;\r\n}\r\n.header_HeaderLeft__sidebarToggle__icon__2gSyh {\r\n  opacity: 8;\r\n}\r\n@media only screen and (min-width: 600px) {\r\n  .header_HeaderLeft__sidebarToggle__3uEu- {\r\n    display: none;\r\n  }\r\n}";
+var styles = { "Header": "header_Header__2Htbj", "HeaderLeft": "header_HeaderLeft__2yE2w", "HeaderLeft__sidebarToggle": "header_HeaderLeft__sidebarToggle__3uEu-", "HeaderLeft__sidebarToggle__icon": "header_HeaderLeft__sidebarToggle__icon__2gSyh" };
 styleInject(css);
+
+var ToggleIcon = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAD0AAAAjCAYAAAAnvgICAAAABHNCSVQICAgIfAhkiAAAAK9JREFUaIHt17EJAkEURdH/fg2CmYiZHZibDUwDlmJqbBnmGuxuB2IgmFmLCLPPGgycLzvvVHDTi5zzrJRyAJDMbGETRPIF4D6O43EYhjNSSicAu+iwWtx97QC20SE1lVI2bmbz6JDKlk7yGV1R2cPNbB9dUQvJW9/3F5iZ5ZwXJFfRUb9E8t113TW6Q0RE5AvQZTVAl9UQXdbk6bJERET+ny6rBbqshuiyJq/py/oAc16Fb3Ky7q8AAAAASUVORK5CYII=";
 
 var classCallCheck = function (instance, Constructor) {
   if (!(instance instanceof Constructor)) {
@@ -3660,13 +3662,23 @@ var Header = function (_React$Component) {
           headerLeft = _props.headerLeft,
           headerCenter = _props.headerCenter,
           headerRight = _props.headerRight,
-          styleHeader = _props.styleHeader;
+          styleHeader = _props.styleHeader,
+          onToggle = _props.onToggle;
 
 
       return React__default.createElement(
         'div',
         { className: 'Layda-Header ' + styles.Header, style: styleHeader },
-        headerLeft,
+        React__default.createElement(
+          'div',
+          { className: styles.HeaderLeft },
+          React__default.createElement(
+            'div',
+            { className: styles.HeaderLeft__sidebarToggle, onClick: onToggle },
+            React__default.createElement('img', { src: ToggleIcon, width: '18', className: 'HeaderLeft__sidebarToggle__icon' })
+          ),
+          headerLeft
+        ),
         headerCenter,
         headerRight
       );
@@ -3675,8 +3687,8 @@ var Header = function (_React$Component) {
   return Header;
 }(React__default.Component);
 
-var css$1 = ".navigation_Navigation__1hUCt {\r\n  height: 100%;\r\n  background-color: #f5f7f9;\r\n  width: 200px;\r\n  border-right: 1px solid #e5ecf1;\r\n}\r\n\r\n.navigation_Navigation__Links___2Bb8 {\r\n  list-style: none;\r\n  margin: 0;\r\n  padding: 0;\r\n}\r\n\r\n.navigation_Navigation__Links__li__3yQ9S a {\r\n  padding: 10px;\r\n  display: block;\r\n  text-decoration: none;\r\n  color: #333;\r\n}\r\n\r\n.navigation_Navigation__Links__li__3yQ9S a:hover {\r\n  background-color: #ddd;\r\n}\r\n.navigation_Navigation__Links__li__3yQ9S a.navigation_active__1Q3G9 {\r\n  background-color: #dfdfdf;\r\n}";
-var styles$1 = { "Navigation": "navigation_Navigation__1hUCt", "Navigation__Links": "navigation_Navigation__Links___2Bb8", "Navigation__Links__li": "navigation_Navigation__Links__li__3yQ9S", "active": "navigation_active__1Q3G9" };
+var css$1 = ".navigation_Navigation__1hUCt {\r\n  height: 100%;\r\n  background-color: #f5f7f9;\r\n  border-right: 1px solid #e5ecf1;\r\n  position: fixed;\r\n  top: 0;\r\n  left: 0;\r\n  display: none;\r\n  width: 80%;\r\n}\r\n.navigation_visible__QNPxA {\r\n  display: block;\r\n}\r\n\r\n@media screen and (min-width: 600px) {\r\n  .navigation_Navigation__1hUCt {\r\n    position: relative;\r\n    width: 200px;\r\n    display: block;\r\n  } \r\n}\r\n\r\n.navigation_Navigation__Links___2Bb8 {\r\n  list-style: none;\r\n  margin: 0;\r\n  padding: 0;\r\n}\r\n\r\n.navigation_Navigation__Links__li__3yQ9S a {\r\n  padding: 10px;\r\n  display: block;\r\n  text-decoration: none;\r\n  color: #333;\r\n}\r\n\r\n.navigation_Navigation__Links__li__3yQ9S a:hover {\r\n  background-color: #ddd;\r\n}\r\n.navigation_Navigation__Links__li__3yQ9S a.navigation_active__1Q3G9 {\r\n  background-color: #dfdfdf;\r\n}\r\n\r\n";
+var styles$1 = { "Navigation": "navigation_Navigation__1hUCt", "visible": "navigation_visible__QNPxA", "Navigation__Links": "navigation_Navigation__Links___2Bb8", "Navigation__Links__li": "navigation_Navigation__Links__li__3yQ9S", "active": "navigation_active__1Q3G9" };
 styleInject(css$1);
 
 var Navigation = function (_React$Component) {
@@ -3692,19 +3704,26 @@ var Navigation = function (_React$Component) {
     value: function render() {
       var _props = this.props,
           boards = _props.boards,
-          styleNavigation = _props.styleNavigation;
+          styleNavigation = _props.styleNavigation,
+          visibleNav = _props.visibleNav,
+          onNavChanged = _props.onNavChanged;
 
 
       return React__default.createElement(
         'div',
-        { className: 'Layda-Navigation ' + styles$1.Navigation, style: styleNavigation },
+        {
+          className: 'Layda-Navigation ' + styles$1.Navigation,
+          style: _extends$b({}, styleNavigation, { display: visibleNav ? 'block' : 'none' })
+        },
         React__default.createElement(
           'ul',
           { className: styles$1.Navigation__Links },
           boards.map(function (board, idx) {
             return board.isVisibledNavigation !== false ? React__default.createElement(
               'li',
-              { className: styles$1.Navigation__Links__li, key: board.path },
+              { className: styles$1.Navigation__Links__li, key: board.path,
+                onClick: onNavChanged
+              },
               React__default.createElement(
                 NavLink,
                 {
@@ -3723,7 +3742,7 @@ var Navigation = function (_React$Component) {
   return Navigation;
 }(React__default.Component);
 
-var css$2 = ".dashboard_DashboardLayout__-VWOf {\r\n  height: 100vh;\r\n  display: -ms-flex;\r\n\tdisplay: -webkit-flex;\r\n  display: flex;\r\n  flex-direction: column;\r\n  flex-wrap: wrap;\r\n  position: relative;\r\n}\r\n\r\n.dashboard_Dashboard__wrap__3Enx0 {\r\n  height: calc(100% - 40px);\r\n  width: 100%;\r\n  display: flex;\r\n  flex: 1;\r\n}\r\n\r\n.dashboard_DashboardMain__1wOi- { \r\n  width: 100%;\r\n  /* background-color: bisque; */\r\n  height: 100%;\r\n}\r\n\r\n.dashboard_DashboardMain__inner__opa9H {\r\n  display: -ms-flex;\r\n\tdisplay: -webkit-flex;\r\n  display: flex;\r\n  flex-direction: row;\r\n  width: 100%;\r\n  height: 100%;\r\n}\r\n.dashboard_DashboardMain__inner__left__279GR {\r\n  flex: 1;\r\n}\r\n\r\n.dashboard_DashboardMain__inner__right__3B22t {\r\n\r\n}";
+var css$2 = ".dashboard_DashboardLayout__-VWOf {\r\n  height: 100vh;\r\n  display: -ms-flex;\r\n\tdisplay: -webkit-flex;\r\n  display: flex;\r\n  flex-direction: column;\r\n  flex-wrap: wrap;\r\n  position: relative;\r\n}\r\n\r\n.dashboard_Dashboard__wrap__3Enx0 {\r\n  height: calc(100% - 40px);\r\n  width: 100%;\r\n  display: flex;\r\n  flex: 1;\r\n}\r\n\r\n.dashboard_DashboardMain__1wOi- { \r\n  width: 100%;\r\n  /* background-color: bisque; */\r\n  height: 100%;\r\n}\r\n\r\n.dashboard_DashboardMain__inner__opa9H {\r\n  display: -ms-flex;\r\n\tdisplay: -webkit-flex;\r\n  display: flex;\r\n  flex-direction: row;\r\n  width: 100%;\r\n  height: 100%;\r\n}\r\n.dashboard_DashboardMain__inner__left__279GR {\r\n  flex: 1;\r\n}\r\n\r\n.dashboard_DashboardMain__inner__right__3B22t {\r\n\r\n}\r\n\r\n";
 var styles$2 = { "DashboardLayout": "dashboard_DashboardLayout__-VWOf", "Dashboard__wrap": "dashboard_Dashboard__wrap__3Enx0", "DashboardMain": "dashboard_DashboardMain__1wOi-", "DashboardMain__inner": "dashboard_DashboardMain__inner__opa9H", "DashboardMain__inner__left": "dashboard_DashboardMain__inner__left__279GR", "DashboardMain__inner__right": "dashboard_DashboardMain__inner__right__3B22t" };
 styleInject(css$2);
 
@@ -3800,9 +3819,28 @@ var Dashboard = function (_React$Component) {
   inherits(Dashboard, _React$Component);
 
   function Dashboard() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
     classCallCheck(this, Dashboard);
-    return possibleConstructorReturn(this, (Dashboard.__proto__ || Object.getPrototypeOf(Dashboard)).apply(this, arguments));
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = possibleConstructorReturn(this, (_ref = Dashboard.__proto__ || Object.getPrototypeOf(Dashboard)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+      visibleNav: window.innerWidth > 600
+    }, _this._onToggle = function () {
+      _this.setState(function (state) {
+        return { visibleNav: !state.visibleNav };
+      });
+    }, _this._onNavChanged = function () {
+      _this.setState({ visibleNav: false });
+    }, _temp), possibleConstructorReturn(_this, _ret);
   }
+  // TODO: this is prototype, need add more works here
+
 
   createClass(Dashboard, [{
     key: 'render',
@@ -3816,6 +3854,7 @@ var Dashboard = function (_React$Component) {
           styleNavigation = _props.styleNavigation,
           styleContainer = _props.styleContainer,
           defaultBoard = _props.defaultBoard;
+      var visibleNav = this.state.visibleNav;
 
 
       return React__default.createElement(
@@ -3825,13 +3864,15 @@ var Dashboard = function (_React$Component) {
           'div',
           { className: styles$2.DashboardLayout, style: styleContainer },
           defaultBoard && React__default.createElement(Redirect, { to: defaultBoard }),
-          header && React__default.createElement(Header, _extends$b({}, header, { styleHeader: styleHeader })),
+          header && React__default.createElement(Header, _extends$b({}, header, { styleHeader: styleHeader, onToggle: this._onToggle })),
           React__default.createElement(
             'div',
             { className: styles$2.Dashboard__wrap },
             React__default.createElement(Navigation, {
               boards: boards,
-              styleNavigation: styleNavigation
+              styleNavigation: styleNavigation,
+              visibleNav: visibleNav,
+              onNavChanged: this._onNavChanged
             }),
             React__default.createElement(
               'div',
@@ -3849,8 +3890,8 @@ var Dashboard = function (_React$Component) {
                       _extends$b({}, board, props),
                       board.sidebar && React__default.createElement(Route, {
                         path: board.path + '/:' + (board.sidebar.sidebarParam || 'id'),
-                        render: function render(_ref) {
-                          var match = _ref.match;
+                        render: function render(_ref2) {
+                          var match = _ref2.match;
                           return React__default.createElement(SideBar, _extends$b({}, board.sidebar, {
                             match: match
                           }));

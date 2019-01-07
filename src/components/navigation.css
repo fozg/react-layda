@@ -1,8 +1,23 @@
 .Navigation {
   height: 100%;
   background-color: #f5f7f9;
-  width: 200px;
   border-right: 1px solid #e5ecf1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  width: 80%;
+}
+.visible {
+  display: block;
+}
+
+@media screen and (min-width: 600px) {
+  .Navigation {
+    position: relative;
+    width: 200px;
+    display: block;
+  } 
 }
 
 .Navigation__Links {
@@ -24,3 +39,4 @@
 .Navigation__Links__li a.active {
   background-color: #dfdfdf;
 }
+

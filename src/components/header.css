@@ -14,3 +14,21 @@
 
   justify-content: space-between;
 }
+
+.HeaderLeft {
+  display: flex;
+  flex-direction: row;
+  justify-items: center;
+  align-items: center;
+}
+.HeaderLeft__sidebarToggle {
+  padding-left: 10px;
+}
+.HeaderLeft__sidebarToggle__icon {
+  opacity: 8;
+}
+@media only screen and (min-width: 600px) {
+  .HeaderLeft__sidebarToggle {
+    display: none;
+  }
+}

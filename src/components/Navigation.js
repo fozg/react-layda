@@ -7,14 +7,21 @@ export default class Navigation extends React.Component {
   render () {
     const {
       boards,
-      styleNavigation
+      styleNavigation,
+      visibleNav,
+      onNavChanged
     } = this.props;
 
     return (
-      <div className={'Layda-Navigation '+styles.Navigation} style={styleNavigation}>
+      <div
+        className={'Layda-Navigation '+styles.Navigation} 
+        style={{...styleNavigation, display: visibleNav ? 'block' : 'none'}}
+      >
         <ul className={styles.Navigation__Links}>
           {boards.map((board, idx) => board.isVisibledNavigation !== false ?
-            <li className={styles.Navigation__Links__li} key={board.path}>
+            <li className={styles.Navigation__Links__li} key={board.path}
+              onClick={onNavChanged}
+            >
               <NavLink 
                 exact={board.exact}
                 to={board.path}

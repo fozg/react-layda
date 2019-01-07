@@ -8,6 +8,18 @@ import SideBar from './SideBar'
 import styles from './dashboard.css'
 
 class Dashboard extends React.Component {
+  // TODO: this is prototype, need add more works here
+  state = {
+    visibleNav: window.innerWidth > 600
+  }
+
+  _onToggle = () => {
+    this.setState(state =>({visibleNav: !state.visibleNav}));
+  }
+
+  _onNavChanged = () => {
+    this.setState({visibleNav: false})
+  }
   render() {
     const {
       boards = [],
@@ -18,16 +30,22 @@ class Dashboard extends React.Component {
       styleContainer,
       defaultBoard
     } = this.props
+    const {
+      visibleNav
+    } = this.state;
 
     return (
       <Router basename={basename}>
         <div className={styles.DashboardLayout} style={styleContainer}>
           {defaultBoard && <Redirect to={defaultBoard}/>}
-          {header && <Header {...header} styleHeader={styleHeader} />}
+          
+          {header && <Header {...header} styleHeader={styleHeader} onToggle={this._onToggle} />}
           <div className={styles.Dashboard__wrap}>
             <Navigation
               boards={boards}
               styleNavigation={styleNavigation}
+              visibleNav={visibleNav}
+              onNavChanged={this._onNavChanged}
             />
             <div
               className={styles.DashboardMain}
