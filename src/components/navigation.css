@@ -7,6 +7,7 @@
   left: 0;
   display: none;
   width: 80%;
+  z-index: 100;
 }
 .visible {
   display: block;
