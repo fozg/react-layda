@@ -3680,7 +3680,7 @@ var Header = function (_React$Component) {
   return Header;
 }(React.Component);
 
-var css$1 = ".navigation_Navigation__1hUCt {\r\n  height: 100%;\r\n  background-color: #f5f7f9;\r\n  border-right: 1px solid #e5ecf1;\r\n  position: fixed;\r\n  top: 0;\r\n  left: 0;\r\n  display: none;\r\n  width: 80%;\r\n}\r\n.navigation_visible__QNPxA {\r\n  display: block;\r\n}\r\n\r\n@media screen and (min-width: 600px) {\r\n  .navigation_Navigation__1hUCt {\r\n    position: relative;\r\n    width: 200px;\r\n    display: block;\r\n  } \r\n}\r\n\r\n.navigation_Navigation__Links___2Bb8 {\r\n  list-style: none;\r\n  margin: 0;\r\n  padding: 0;\r\n}\r\n\r\n.navigation_Navigation__Links__li__3yQ9S a {\r\n  padding: 10px;\r\n  display: block;\r\n  text-decoration: none;\r\n  color: #333;\r\n}\r\n\r\n.navigation_Navigation__Links__li__3yQ9S a:hover {\r\n  background-color: #ddd;\r\n}\r\n.navigation_Navigation__Links__li__3yQ9S a.navigation_active__1Q3G9 {\r\n  background-color: #dfdfdf;\r\n}\r\n\r\n";
+var css$1 = ".navigation_Navigation__1hUCt {\r\n  height: 100%;\r\n  background-color: #f5f7f9;\r\n  border-right: 1px solid #e5ecf1;\r\n  position: fixed;\r\n  top: 0;\r\n  left: 0;\r\n  display: none;\r\n  width: 80%;\r\n  z-index: 100;\r\n}\r\n.navigation_visible__QNPxA {\r\n  display: block;\r\n}\r\n\r\n@media screen and (min-width: 600px) {\r\n  .navigation_Navigation__1hUCt {\r\n    position: relative;\r\n    width: 200px;\r\n    display: block;\r\n  } \r\n}\r\n\r\n.navigation_Navigation__Links___2Bb8 {\r\n  list-style: none;\r\n  margin: 0;\r\n  padding: 0;\r\n}\r\n\r\n.navigation_Navigation__Links__li__3yQ9S a {\r\n  padding: 10px;\r\n  display: block;\r\n  text-decoration: none;\r\n  color: #333;\r\n}\r\n\r\n.navigation_Navigation__Links__li__3yQ9S a:hover {\r\n  background-color: #ddd;\r\n}\r\n.navigation_Navigation__Links__li__3yQ9S a.navigation_active__1Q3G9 {\r\n  background-color: #dfdfdf;\r\n}\r\n\r\n";
 var styles$1 = { "Navigation": "navigation_Navigation__1hUCt", "visible": "navigation_visible__QNPxA", "Navigation__Links": "navigation_Navigation__Links___2Bb8", "Navigation__Links__li": "navigation_Navigation__Links__li__3yQ9S", "active": "navigation_active__1Q3G9" };
 styleInject(css$1);
 
@@ -3808,6 +3808,9 @@ var SideBar = function (_React$Component) {
   return SideBar;
 }(React.Component);
 
+// This is hard code for now
+var WINDOW_MOBILE_WIDTH = 600;
+
 var Dashboard = function (_React$Component) {
   inherits(Dashboard, _React$Component);
 
@@ -3823,13 +3826,13 @@ var Dashboard = function (_React$Component) {
     }
 
     return _ret = (_temp = (_this = possibleConstructorReturn(this, (_ref = Dashboard.__proto__ || Object.getPrototypeOf(Dashboard)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
-      visibleNav: window.innerWidth > 600
+      visibleNav: window.innerWidth > WINDOW_MOBILE_WIDTH
     }, _this._onToggle = function () {
       _this.setState(function (state) {
         return { visibleNav: !state.visibleNav };
       });
     }, _this._onNavChanged = function () {
-      _this.setState({ visibleNav: false });
+      _this.setState({ visibleNav: window.innerWidth > WINDOW_MOBILE_WIDTH });
     }, _temp), possibleConstructorReturn(_this, _ret);
   }
   // TODO: this is prototype, need add more works here

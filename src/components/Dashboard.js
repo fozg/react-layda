@@ -7,10 +7,12 @@ import SideBar from './SideBar'
 
 import styles from './dashboard.css'
 
+// This is hard code for now
+const WINDOW_MOBILE_WIDTH = 600;
 class Dashboard extends React.Component {
   // TODO: this is prototype, need add more works here
   state = {
-    visibleNav: window.innerWidth > 600
+    visibleNav: window.innerWidth > WINDOW_MOBILE_WIDTH
   }
 
   _onToggle = () => {
@@ -18,7 +20,7 @@ class Dashboard extends React.Component {
   }
 
   _onNavChanged = () => {
-    this.setState({visibleNav: false})
+    this.setState({visibleNav: window.innerWidth > WINDOW_MOBILE_WIDTH})
   }
   render() {
     const {
